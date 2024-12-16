@@ -26,20 +26,19 @@ namespace ConsoleApp1
                 kilometerStand = 65739,
                 merk = "volvo"
             };
-            RijLeraar rijLeraar = new RijLeraar()
+            RijLeraar rijLeraar1 = new RijLeraar()
             {
                 leeftijd = 30,
                 naam = "jonh",
                 zzp = false,
             };
-            LesUur lesUur = new LesUur()
+            RijLeraar rijLeraar2 = new RijLeraar()
             {
-                auto = auto1,
-                rijLeraar = rijLeraar,
-                
-                tijd = 1130
+                leeftijd = 20,
+                naam = "Ben",
+                zzp = false,
             };
-            Student student = new Student()
+            Student student1 = new Student()
             {
                 lesPakket = new LesPakket()
                 {
@@ -57,12 +56,55 @@ namespace ConsoleApp1
                 rijTest = new RijTest()
                 {
                     gehaald = true,
-                    afnameDatum = new DateTime(16,6,23)
+                    afnameDatum = new DateTime(2016,6,23)
                 }
             };
+            Student student2 = new Student()
+            {
+                lesPakket = new LesPakket()
+                {
+                    automaat = true,
+                    urenVerbruikt = 155,
+                    examenPogingen = 7,
+                    urenGekocht = 175,
+                },
+                theorieTest = new TheorieTest()
+                {
+                    aantalFouten = 6,
+                    gehaald = true,
+                    afnameDatum = new DateTime(2001, 5, 18)
+                },
+                rijTest = new RijTest()
+                {
+                    gehaald = true,
+                    afnameDatum = new DateTime(2019, 6, 23)
+                }
+            };
+
+            LesUur lesUur1 = new LesUur()
+            {
+                auto = auto1,
+                student = student1,
+                rijLeraar = rijLeraar1,
+
+                tijd = 1130
+            };
+            LesUur lesUur2 = new LesUur()
+            {
+                auto = auto2,
+                student = student2,
+                rijLeraar = rijLeraar2
+            };
+
             Dag dag = new Dag()
             {
-                
+                lesuren = new LesUur[]
+                {
+                    lesUur1,
+                    lesUur2
+                }
+
+
             };
         }
     }
